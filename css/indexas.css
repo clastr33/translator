@@ -1,0 +1,248 @@
+/* --------------------------- Common Markup ------------------------ */
+p {
+	margin: 0;
+}	
+
+.display_none{
+	display: none;	
+}	
+
+.color_red {
+	color: red;	
+}	
+
+.align-center-as01 {
+	text-align: center;
+}
+
+.align-left-as01 {
+	text-align: left;
+}
+
+.align-justify-as01 {
+	text-align: justify;
+}
+
+.align-center2-as01 {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.spaceras {
+	margin: 1em 0;
+}	
+.spaceras05 {
+	margin: 0.5em 0;
+}	
+.spaceras005 {
+	margin: 0.05em 0;
+}
+.spaceras0 {
+	margin: 0.0em 0;
+}
+
+
+body {
+    font: 1.6em Lato, sans-serif;
+    line-height: 1.8;
+    color: #eee;//#818181;	
+	background: #3d3d3d url('../img/background-as2.jpg') repeat fixed center; 
+		  
+	text-align: center;
+}
+
+ 
+/* --------------------------- Main Screen --------------------------- */ 
+.as-container-padding {
+	padding: 3%;
+	max-width: 1400px;	
+} 
+ 
+h4 {
+    font-size: 1.3em;
+    line-height: 1.375em;
+    font-weight: 400;
+    margin-bottom: 1.8em;
+}
+
+a {
+	color: #8ecfff;
+}
+a:hover {
+	color: #8effff;
+}
+ 
+.jumbas {
+	font-style: italic;
+	color: #ccc;
+	margin-bottom: 1em;
+}
+.jumbas  h1 {
+	font-family: 'Merriweather', serif;
+	font-style: normal;
+    color: #fff;	  
+}
+
+ 
+.container-fluid {
+    padding: 3em;
+}
+
+
+
+.bg-grey {
+	background-color: rgba(37, 32, 31, 0.7); /* Цвет фона и значение прозрачности */
+	border-radius: 1em;
+	border: 2px solid #aaa;
+}
+
+
+.logo {
+    color: #8ecfff;
+    font-size: 10em;
+	padding: 5% 0 0 0;
+}
+
+.navbar {
+    background-color: #394c76;
+    z-index: 9999;      
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    border-radius: 0;
+	border: 0;
+    font-family: Montserrat, sans-serif;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+     ackground-color: #fff !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.navbar-brand img {
+	height: 30px;
+}
+
+.glyphicon {
+	font-size: 8em;
+}
+
+footer .glyphicon {
+    font-size: 2em;
+     olor: #f4511e;
+}
+
+
+
+/* --------------------------- Sidebar modules for boxing content --------------------------- */
+.sidebar-module {    
+	background-color: rgba(37, 32, 31, 0.5); /* Цвет фона и значение прозрачности */
+	
+	border-radius: 1em;
+	border: 2px solid #aaa;
+	
+	margin: 0 0 1em 0;
+	padding: 10%;
+}
+
+.btn-danger, .form-control {
+	margin: 3% 0 0 0;
+}
+
+.nobullet {
+	list-style-type: none;
+	margin-left: -2.0em;
+}	
+
+.text-block p {
+	text-align: justify;
+}	
+
+.text-intro p, .text-intro li {
+	text-align:left;
+}	
+
+	
+
+.developed {
+	font-size: 0.9em !important;
+}	
+
+.activelang {
+	color: #8effff;
+}	
+
+#langPlace li a, #wordPlace li a {
+	cursor: pointer;	
+}	
+
+#langPlace li input, #wordPlace li input {
+	width: 110px;	
+}
+	
+#langPlace li .del_button, #wordPlace li .del_button {
+	width: 30px;
+	cursor: pointer; 
+}	
+
+#langPlace .li_lang_edit, #wordPlace .li_lang_edit {
+	color: #394C76;
+}
+
+#wordPlace {
+	max-height: 600px;
+	overflow: auto;
+}
+
+#input_wordlang_nameID {
+	margin-left: -0.3em;
+}	
+
+
+
+
+/* --------------------------- Other --------------------------- */
+.contact_container {
+	min-height: 750px;
+}	
+
+.contact_text_title, .contact_text_block {
+	margin: 1em 0;	
+}	
+
+
+.view_allwords {
+	min-width: 70%;
+}
+
+.font-size07em {
+	font-size: 0.7em;
+}
+
+
+
+
+/* --------------------------- breakpoints --------------------------- */
+@media only screen and (max-width : 900px) {
+	.jumbas {
+		margin-top: 2em;
+	}	
+}
+
+
+
+
+
+
+
+	
+
+
+
+	

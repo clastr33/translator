@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="88443ab8-24cf-4f8a-aa29-1c888b174163" name="translator-on-openserver" url="http://translator/">
+        <fileTransfer port="0" mountedRoot="D:\openserver\domains\translator" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>
