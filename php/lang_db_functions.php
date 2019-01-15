@@ -38,18 +38,19 @@ function TakeLangIDByName($inLangName)
 	return $langID2;
 }
 
+function AntiInjections($inText)
+{
+    //Anti SQL-injection 2.
+    //Replace special symbols '=' on 'EQ' and so on.
+    $initPatterns = array("=", ";", ":", "?", "/", "\\");
+    $newPatterns = array("EQ", "DC", "DD", "QQ", "SU", "SD");
+    $inText = str_replace($initPatterns, $newPatterns, $inText);
 
+    //Anti XSS-injection
+    $inText = htmlspecialchars($inText, ENT_QUOTES);
 
+    //Anti SQL-injection 1.
+    //$inText = mysqli_real_escape_string($conn, $inText);
 
-
-
-
-
-
-
-
-
-
-
-
-
+    return $inText;
+}

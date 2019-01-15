@@ -1,17 +1,10 @@
 <?php
 class View
 {
-    //public $template_view; // здесь можно указать общий вид по умолчанию.
+    //public $template_view; // Here we can set template by default.
 
     function generate($content_view, $template_view, $data = null)
     {
-        /*
-        if(is_array($data)) {
-            // преобразуем элементы массива в переменные
-            extract($data);
-        }
-        */
-
         include 'mvcphp/views/'.$template_view;
     }
 }

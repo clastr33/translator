@@ -31,6 +31,7 @@
 	setcookie($cookie_name, $cookie_value, $cookie_expire, $cookie_available, $cookie_domain_name, $cookie_HTTPS_only, $cookie_HTTP_only);
 */
 ?>
+
 	
 	<div class="align-center2-as01">
 	<div class="as-container-padding">
@@ -53,6 +54,8 @@
 				<li><a href="/">MAIN</a></li>
 				<li><a href="allwordslist">ALL WORDS</a></li>
 				<li><a href="contact">CONTACTS</a></li>
+				<li id="menu_login"><a href="login">LOGIN</a></li>
+				<li id="menu_admin"><a href="admin">CABINET</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -119,6 +122,9 @@
 		  <a href="#myPage" title="To Top">
 			<span class="glyphicon glyphicon-chevron-up"></span>
 		  </a>
+
+
+          <i id="hid_temp_request" class="display_none"></i>
 		</footer>
 
 		<?php

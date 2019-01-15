@@ -210,7 +210,12 @@ footer .glyphicon {
 /* --------------------------- Other --------------------------- */
 .contact_container {
 	min-height: 750px;
-}	
+}
+
+.login_container {
+	min-height: 750px;
+	min-width: 600px;
+}
 
 .contact_text_title, .contact_text_block {
 	margin: 1em 0;	
@@ -225,9 +230,28 @@ footer .glyphicon {
 	font-size: 0.7em;
 }
 
+#menu_admin {
+	//display: none;
+}
 
 
+#submitbtn {
+	color: black;
+	padding: 0.5em 1em;
+	margin: 1em;
+}
 
+.logininput {
+	color: black;
+	margin: 1em;
+}
+
+.success_action {
+	color: green;
+}
+.unsuccess_action {
+	color: red;
+}
 /* --------------------------- breakpoints --------------------------- */
 @media only screen and (max-width : 900px) {
 	.jumbas {

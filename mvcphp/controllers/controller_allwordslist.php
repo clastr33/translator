@@ -9,7 +9,8 @@ class Controller_Allwordslist extends Controller
 
     function action_index()
     {
-        $data = $this->model->get_data();
+        $data1 = $this->model->get_data();
+        $data[0] = $data1;
         $this->view->generate('view_allwordslist.php', 'view_template.php', $data);
     }
 }

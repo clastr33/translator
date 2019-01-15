@@ -9,6 +9,8 @@ var CUR_WORD_ID = 1;
 
 var MAX_EQUAL = 1;
 var CUR_EQUAL = 1;
+
+var LOGGED_IN = false;
 	
 window.onload = function() {				//Start only after page load.
 	initas();
@@ -17,7 +19,9 @@ window.onload = function() {				//Start only after page load.
 	 
 function initas() {
 	loadtext(CUR_TEXT, CUR_TEXT);
-	db_lang_read("read");	
+	db_lang_read("read");
+	checklogin();
+	checktoken();
 }
 
 //Scroll up smooth.
@@ -114,11 +118,13 @@ function lang_choose(in_id)	{
 }	
 
 function db_lang_delete(in_cur_langID) {
-	//Delete <li>			
-	var parent = document.getElementById("langPlace");	
-	var childID = "langname_li" + in_cur_langID;
-	var child = document.getElementById(childID);
-	parent.removeChild(child);
+    if(LOGGED_IN == true) {
+        //Delete <li>
+        var parent = document.getElementById("langPlace");
+        var childID = "langname_li" + in_cur_langID;
+        var child = document.getElementById(childID);
+        parent.removeChild(child);
+    }
 
 	//Delete from db.
 	//1 Set initial.
@@ -127,15 +133,19 @@ function db_lang_delete(in_cur_langID) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			db_lang_read("change");
+            var str = xmlhttp.responseText;
+            if(str == "Access granted")
+                db_lang_read("change");
+            else
+                alert(str);
 		}	
 	};
 
 	//3 Send, wait data.	
 	xmlhttp.open("POST", "php/db_lang_delete.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-		var paramsa = "in_cur_langID="; 
-		paramsa += in_cur_langID;	
+		var paramsa = "in_cur_langID="; 		paramsa += in_cur_langID;
+        paramsa += "&scrf_token=";     		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
 	xmlhttp.send(paramsa);		
 }
 
@@ -147,32 +157,35 @@ function db_lang_create() {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			//Add new string.
-			document.getElementById("langPlace").innerHTML += xmlhttp.responseText;	
-			MAX_LANG_ID++;		
-			
-			document.getElementById("input_lang_nameID").value = "";	
+            document.getElementById("hid_temp_request").innerHTML = xmlhttp.responseText;
+            var str = document.getElementById("temp_request2").innerHTML;
+            if (str == "Access granted") {
+                //Add new string.
+                document.getElementById("langPlace").innerHTML += document.getElementById("temp_request1").innerHTML;;
+                MAX_LANG_ID++;
+                document.getElementById("input_lang_nameID").value = "";
+            }
+            else
+                alert(str);
 		}	
 	};
 
 	//3 Send, wait data.	
 	xmlhttp.open("POST", "php/db_lang_create.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-		var paramsa = "input_lang_name="; 
-		paramsa += input_lang_name;	
-		paramsa += "&MAX_LANG_ID=";
-		paramsa += MAX_LANG_ID;	
-	xmlhttp.send(paramsa);		
+		var paramsa = "input_lang_name="; 		paramsa += input_lang_name;
+		paramsa += "&MAX_LANG_ID=";     		paramsa += MAX_LANG_ID;
+		paramsa += "&scrf_token=";     		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
+	xmlhttp.send(paramsa);
 }
 
 function db_lang_update() {
 	//1 Set initial.
 	document.getElementById("change_lang_button").style.display = "inline";	
 	document.getElementById("accept_lang_button").style.display = "none";
-	
-	var paramsF1 = "";
+
 	var paramsF = "";
-	var numNames = 0;	
+	//var numNames = 0;
 	var childID;
 	var childVal;
 	var exister;
@@ -183,29 +196,29 @@ function db_lang_update() {
 			childVal = "langname_val" + i;	
 			paramsF += "&" + childID + "=";	paramsF += i;
 			paramsF += "&" + childVal + "=";
-            //Anti injections
-			paramsF1 = document.getElementById(childID).value;
-			paramsF1 = htmlDecodeAS(paramsF1);
-			paramsF1 = SQLDecodeAS(paramsF1);
-			paramsF += paramsF1;
-			numNames++;
+			paramsF += document.getElementById(childID).value;
+			//numNames++;
 		}	
 	}
-	
+
 	//2 Ready to receive data.	
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function()	{
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			db_lang_read("read");
+            var str = xmlhttp.responseText;
+            if(str == "Access granted")
+                db_lang_read("read");
+            else
+                alert(str);
 		}	
 	};
 
 	//3 Send, wait data.	
 	xmlhttp.open("POST", "php/db_lang_update.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-		var paramsa = "MAX_LANG_ID=";		paramsa += MAX_LANG_ID;	
-		paramsa += "&numNames=";			paramsa += numNames;	
-		paramsa += "&paramsF=";				paramsa += paramsF;		
+		var paramsa = "MAX_LANG_ID=";		paramsa += MAX_LANG_ID;
+		paramsa += "&paramsF=";				paramsa += paramsF;
+        paramsa += "&scrf_token="; 		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
 	xmlhttp.send(paramsa);		
 }
 
@@ -282,8 +295,8 @@ function db_word_delete(in_cur_wordID) {
 	//3 Send, wait data.	
 	xmlhttp.open("POST", "php/db_word_delete.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-		var paramsa = "in_cur_wordID="; 
-		paramsa += in_cur_wordID;	
+		var paramsa = "in_cur_wordID="; 		paramsa += in_cur_wordID;
+        paramsa += "&scrf_token=";     		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
 	xmlhttp.send(paramsa);		
 }
 
@@ -312,6 +325,7 @@ function db_word_create() {
 		paramsa += "&input_word_name=";				paramsa += input_word_name;
 		paramsa += "&MAX_WORD_ID=";					paramsa += MAX_WORD_ID;
 		paramsa += "&CUR_EQUAL=";					paramsa += CUR_EQUAL;
+        paramsa += "&scrf_token=";       		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
 	xmlhttp.send(paramsa);		
 }
 
@@ -326,8 +340,7 @@ function db_word_update(in_action) {
 	document.getElementById("lang_module").style.display = "block";
 
 	var paramsF = "";
-    var paramsF1 = "";
-	var numNames = 0;	
+	//var numNames = 0;
 	var childID;
 	var childVal;
 	var childLangVal;
@@ -340,16 +353,10 @@ function db_word_update(in_action) {
 			childLangVal = "wordlangname" + i;	
 			paramsF += "&" + childID + "=";	paramsF += i;
             paramsF += "&" + childVal + "=";
-
-            //Anti injections
-            paramsF1 = document.getElementById(childID).value;
-            paramsF1 = htmlDecodeAS(paramsF1);
-            paramsF1 = SQLDecodeAS(paramsF1);
-            paramsF += paramsF1;
-
+            paramsF += document.getElementById(childID).value;
 			paramsF += "&" + childLangVal + "=";
 			paramsF += document.getElementById(childLangVal).innerHTML;
-			numNames++;		
+			//numNames++;
 		}	
 	}
 		
@@ -357,35 +364,73 @@ function db_word_update(in_action) {
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-			db_word_read("read");
+            var str = xmlhttp.responseText;
+		    if(str == "Access granted")
+			    db_word_read("read");
+		    else
+		        alert(str);
 		}	
 	};
 
 	//3 Send, wait data.	
 	xmlhttp.open("POST", "php/db_word_update.php", true);
 	xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");	
-		var paramsa = "MAX_WORD_ID="; 		paramsa += MAX_WORD_ID;	
-		paramsa += "&numNames=";			paramsa += numNames;	
+		var paramsa = "MAX_WORD_ID="; 		paramsa += MAX_WORD_ID;
 		paramsa += "&paramsF=";				paramsa += paramsF;	
 		paramsa += "&in_action=";			paramsa += in_action;	
-		paramsa += "&MAX_EQUAL=";			paramsa += MAX_EQUAL;			
+		paramsa += "&MAX_EQUAL=";			paramsa += MAX_EQUAL;
+        paramsa += "&scrf_token="; 		    paramsa += document.getElementById("hid_scrf_token").innerHTML;
 	xmlhttp.send(paramsa);	
 }
 
 
-//Anti XSS-injection
-function htmlDecodeAS(t) {
-	if (t)
-		t = $('<div />').html(t).text();
+function checklogin() {
+    //1 Set initial.
 
-	return t;
+    //2 Ready to receive data.
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function()	{
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			var str = xmlhttp.responseText;
+
+        	if( str != "notlogged") {
+                document.getElementById("menu_login").style.display = "none";
+                document.getElementById("menu_admin").style.display = "inline";
+                LOGGED_IN = true;
+            } else {
+                document.getElementById("menu_login").style.display = "inline";
+                document.getElementById("menu_admin").style.display = "none";
+                LOGGED_IN = false;
+			}
+        }
+    };
+
+    //3 Send, wait data.
+    xmlhttp.open("POST", "php/checklogin.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var paramsa = "";
+    xmlhttp.send(paramsa);
 }
 
-//Anti SQL-injection
-//Replace all '=' on 'EQ'
-function SQLDecodeAS(t) {
-    if(t)
-    	t = t.replace(/=/gi, "EQ");
+function checktoken() {
+    //1 Set initial.
 
-    return t;
+    //2 Ready to receive data.
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function()	{
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var str = xmlhttp.responseText;
+            document.getElementById("hid_scrf_token").innerHTML = str;
+        }
+    };
+
+    //3 Send, wait data.
+    xmlhttp.open("POST", "php/checktoken.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var paramsa = "";
+    xmlhttp.send(paramsa);
 }
+
+
+
+

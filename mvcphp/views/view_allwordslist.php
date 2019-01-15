@@ -9,15 +9,12 @@
 
         <p>
         <?php
-
-            foreach($data as $key => $value)
-            {
+            foreach($data[0] as $key => $value) {
                 if($value != "===")
                     echo $key . " (" . $value . ")<br>";
                 else
                     echo "<br>";
             }
-
         ?>
         </p>
         <p class="font-size07em">
@@ -26,4 +23,5 @@
     </div>
   </div>
 </div>
+<i id="hid_scrf_token" class="display_none"><?php echo $csrf_token ?></i>
 

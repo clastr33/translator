@@ -35,6 +35,7 @@
 		</div>
 	</div>
 </div>
+<i id="hid_scrf_token" class="display_none"><?php echo $csrf_token ?></i>
 
 
 
