@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- asver=1.1 -->
     <meta charset="utf-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,7 +12,7 @@
 	<script src="js/as-ajax.js"></script>	
 	
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">	
-	<link rel="stylesheet" href="css/indexas.css">
+	<link rel="stylesheet" href="css/indexas.css?asver=1.1">
 	
 	<link rel="shortcut icon" href="img/favicon.ico">	
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">	
@@ -91,9 +92,9 @@
 					  <img src="img/rolling-color.svg">
 					</ol>
 
-					<!--<button id="change_lang_button" class="btn btn-default btn-lg" onclick="db_lang_read('read');">Cancel</button>-->
-					<button id="change_lang_button" class="btn btn-default btn-lg" onclick="db_lang_read('change');">Change</button>
-					<button id="accept_lang_button" class="btn btn-default btn-lg   display_none" onclick="db_lang_update();">Accept</button>
+					<!--<button id="change_lang_button" class="btn   btn-default   btn-lg" onclick="db_lang_read('read');">Cancel</button>-->
+					<button id="change_lang_button" class="btn   btn-default   btn-lg" onclick="db_lang_read('change');">Change</button>
+					<button id="accept_lang_button" class="btn   btn-default   btn-lg   display_none" onclick="db_lang_update();">Accept</button>
 				</div>
  
 				<div id="word_module" class="sidebar-module">
@@ -103,11 +104,11 @@
 					  <img src="img/rolling-color.svg">
 					</ol>
 					
-					<button id="change_word_button" class="btn btn-default btn-lg" onclick="db_word_read('change');">Change</button>
-					<button id="accept_word_button" class="btn btn-default btn-lg   display_none" onclick="db_word_update('change');">Accept</button>
+					<button id="change_word_button" class="btn   btn-default   btn-lg" onclick="db_word_read('change');">Change</button>
+					<button id="accept_word_button" class="btn   btn-default   btn-lg   display_none" onclick="db_word_update('change');">Accept</button>
 				
-					<button id="newword_button" class="btn btn-default btn-lg" onclick="db_word_read('addnew');">Add</button>
-					<button id="accept_newword_button" class="btn btn-default btn-lg   display_none" onclick="db_word_update('addnew');">Accept</button>
+					<button id="newword_button" class="btn   btn-default   btn-lg" onclick="db_word_read('addnew');">Add</button>
+					<button id="accept_newword_button" class="btn   btn-default   btn-lg   display_none" onclick="db_word_update('addnew');">Accept</button>
 				</div>			  
 			</div>					
 		</div>

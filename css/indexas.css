@@ -77,6 +77,7 @@ a:hover {
 	font-style: italic;
 	color: #ccc;
 	margin-bottom: 1em;
+	//min-width: 800px;
 }
 .jumbas  h1 {
 	font-family: 'Merriweather', serif;
@@ -149,6 +150,8 @@ footer .glyphicon {
 	
 	margin: 0 0 1em 0;
 	padding: 10%;
+
+	min-width: 200px;
 }
 
 .btn-danger, .form-control {
@@ -214,7 +217,9 @@ footer .glyphicon {
 
 .login_container {
 	min-height: 750px;
-	min-width: 600px;
+	//min-width: 600px;
+//	width: 100%;
+//border: 2px solid #f00;
 }
 
 .contact_text_title, .contact_text_block {
@@ -236,8 +241,8 @@ footer .glyphicon {
 
 
 #submitbtn {
-	color: black;
-	padding: 0.5em 1em;
+//	color: black;
+//	padding: 0.5em 1em;
 	margin: 1em;
 }
 
@@ -252,6 +257,9 @@ footer .glyphicon {
 .unsuccess_action {
 	color: red;
 }
+
+
+
 /* --------------------------- breakpoints --------------------------- */
 @media only screen and (max-width : 900px) {
 	.jumbas {

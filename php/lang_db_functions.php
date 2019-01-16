@@ -2,7 +2,7 @@
 function TakeLangNameByID($inLangID)
 {
 	$langName2 = "";
-	include("misc.inc");
+	include("mvcphp/misc.inc");
 	$conn2 = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 		if ($conn2->connect_error) die();	
 		mysqli_set_charset($conn2, "utf8");	
@@ -22,7 +22,7 @@ function TakeLangNameByID($inLangID)
 function TakeLangIDByName($inLangName)
 {
 	$langID2 = 0;
-	include("misc.inc");
+	include("mvcphp/misc.inc");
 	$conn2 = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 		if ($conn2->connect_error) die();	
 		mysqli_set_charset($conn2, "utf8");	

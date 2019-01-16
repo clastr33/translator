@@ -4,7 +4,7 @@ $lang_action  = $_REQUEST["lang_action"];
 $MAX_LANG_ID  = $_REQUEST["MAX_LANG_ID"];
 
 //Connect to dbase
-include("misc.inc");
+include("../mvcphp/misc.inc");
 $conn = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 	if ($conn->connect_error) die();
 	mysqli_set_charset($conn, "utf8");

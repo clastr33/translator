@@ -9,7 +9,7 @@ $CUR_EQUAL  = $_REQUEST["CUR_EQUAL"];
 $MAX_EQUAL  = $_REQUEST["MAX_EQUAL"];
 
 //Connect to dbase
-include("misc.inc");
+include("../mvcphp/misc.inc");
 include("lang_db_functions.php");
 $conn = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 	if ($conn->connect_error) die();

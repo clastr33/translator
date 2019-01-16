@@ -4,7 +4,7 @@ class Model_Allwordslist extends Model
 	public function get_data()
 	{
 		$PairsArr = array();
-		include("php/misc.inc");
+		include("mvcphp/misc.inc");
 		include("php/lang_db_functions.php");
 		$conn = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 			if ($conn->connect_error) die();

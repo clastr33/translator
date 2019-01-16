@@ -1,1 +1,0 @@
-<?php$hostFix = 'localhost';$userFix = 'todo_user';$passwordFix = '123456';$databaseFix = 'db_translater';

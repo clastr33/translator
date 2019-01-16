@@ -1,5 +1,5 @@
 <?php
-include("misc.inc");
+include("../mvcphp/misc.inc");
 include("lang_db_functions.php");
 $input_lang_name = $_REQUEST["input_lang_name"];
 $input_lang_name = AntiInjections($input_lang_name);

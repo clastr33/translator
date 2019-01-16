@@ -8,7 +8,7 @@
 $old_langName  = $_REQUEST["old_langName"];
 $new_langName  = $_REQUEST["new_langName"];
 
-include("misc.inc");
+include("../mvcphp/misc.inc");
 $conn = new mysqli($hostFix, $userFix, $passwordFix, $databaseFix);
 	if ($conn->connect_error) die();
 	mysqli_set_charset($conn, "utf8");

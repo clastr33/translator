@@ -1,5 +1,5 @@
 <?php
-include("misc.inc");
+include("../mvcphp/misc.inc");
 include("lang_db_functions.php");
 $MAX_WORD_ID  = $_REQUEST["MAX_WORD_ID"];
 $paramsF  = $_REQUEST["paramsF"];

@@ -1,6 +1,6 @@
 <?php
 //Connect to dbase
-include("misc.inc");
+include("../mvcphp/misc.inc");
 $in_cur_wordID  = (int)$_REQUEST["in_cur_wordID"];
 $scrf_token_page  = (int)$_REQUEST["scrf_token"];
 

@@ -11,7 +11,7 @@
                 <p><input class="logininput" type="password" name="password" placeholder="Password"></p>
                 Tip: admin - 123
                 <p><input class="logininput" type="hidden" name="csrf" value="<?php echo $csrf_token ?>"></p>
-                <p><input id="submitbtn" type="submit" name="submit" value="SUBMIT"></p>
+                <p><input id="submitbtn" class="btn   btn-default   btn-lg" type="submit" name="submit" value="SUBMIT"></p>
             </form>
             <?php
             if($login_status == "access_granted") {
