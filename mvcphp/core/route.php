@@ -4,8 +4,8 @@ class Route
 {
 	static function start()
 	{
-		// 0 Set default controller and action.
-        //(in http://translater/allwordslist    controller: allwordslist, action: "")
+		// 0 Set default controller and action to Main and index.
+        //(in http://translator/allwordslist    controller: allwordslist, action: "" i.e. index)
 		$controller_name = 'Main';
 		$action_name = 'index';
 		//$path_index = 4;  //http://localhost/as/learn/mvc/   as=1  learn=2   mvc=3
@@ -28,14 +28,14 @@ class Route
 		$action_name = 'action_'.$action_name;
 
 		
-		//2 Bind files:
-		//- Model class (model file could be absent)
+		//2 Include current page Model and Controller:
+		//- Model class file could be absent
 		$model_file = strtolower($model_name).'.php';
 		$model_path = "mvcphp/models/".$model_file;
 		if(file_exists($model_path))
 			include $model_path;
 
-		//- Controller class.
+		//- Controller class file.
 		$controller_file = strtolower($controller_name).'.php';
 		$controller_path = "mvcphp/controllers/".$controller_file;
 		if(file_exists($controller_path))
@@ -45,7 +45,7 @@ class Route
 			echo "<br>File '{$controller_path}' is not exists";
 
 
-		//3 Create controller
+		//3 Create controller and call controller action
 		$controller = new $controller_name;
 		$action = $action_name;
 		
@@ -56,7 +56,9 @@ class Route
 			//Route::ErrorPage404();
 			echo "<br>Method '{$action}' for '{$controller}' is not exists";
 	}
-	
+
+
+
 	function ErrorPage404()
 	{
 		$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
@@ -66,7 +68,7 @@ class Route
 	}
 	function NotFoundRedirect()
 	{
-		$host = 'http://translater/';
+		$host = 'http://translator/';
 		header('Location:'.$host);
 	}			
 }
