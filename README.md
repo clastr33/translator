@@ -1,4 +1,4 @@
-Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)]
+Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)
 =========
 
 The most desirable products in comparison
