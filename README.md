@@ -1,4 +1,4 @@
-Vergleich.tagesspiegel.de [![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)]
+Vergleich.tagesspiegel.de https://vergleich.tagesspiegel.de/tagesspiegel-logo.png
 =========
 
 Vergleich lets you write client-side web applications as if you had a smarter browser.  It lets you
