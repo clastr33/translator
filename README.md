@@ -1,4 +1,4 @@
-[Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)] (https://vergleich.tagesspiegel.de)
+Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)]
 =========
 
 The most desirable products in comparison
@@ -17,7 +17,7 @@ Repository
 Go to https://github.com/tedyme/vgl-tsp
 
 
-Setup of a server
+Setup of servers
 ---------
 Some configuration files are not included into the repository.
 
@@ -36,7 +36,7 @@ define('PROJECT_PROXY_URL', PROJECT_PROTOCOL . PROJECT_PROXY_NAME);
 define('PROJECT_PATH', '/var/www/tagesspiegel.de/vergleich');
 
 
-
+---------
 #### wp-config.php on Local server
 
 Add to the end of file, for example:
