@@ -10,11 +10,9 @@ Compare products quickly and easily with our practical guides. From suitable art
 
 **Stage site:** https://ts-vgl.stage.knopp-media.de
 
---------------------
+**Repository:** https://github.com/tedyme/vgl-tsp
 
-Repository
 --------------------
-Go to https://github.com/tedyme/vgl-tsp
 
 
 Setup of servers
