@@ -1,4 +1,4 @@
-Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)
+[Vergleich.tagesspiegel.de ![Logo](https://vergleich.tagesspiegel.de/tagesspiegel-logo.png)] (https://vergleich.tagesspiegel.de)
 =========
 
 The most desirable products in comparison
@@ -36,9 +36,10 @@ define('PROJECT_PROXY_URL', PROJECT_PROTOCOL . PROJECT_PROXY_NAME);
 define('PROJECT_PATH', '/var/www/tagesspiegel.de/vergleich');
 
 
+
 #### wp-config.php on Local server
 
-Add to the end of file:
+Add to the end of file, for example:
 
 define('PROJECT_DOMAIN_NAME', 'vergleich.dev');
 define('PROJECT_PROXY_NAME', 'vergleich.dev');
