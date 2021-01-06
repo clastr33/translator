@@ -24,11 +24,13 @@ Some configuration files are not included into the repository.
 Add to the end of file:
 
 define('PROJECT_DOMAIN_NAME', 'vergleich.tagesspiegel.de');
+
 define('PROJECT_PROXY_NAME', 'ts-proxy.knopp-media.de');
 
 define('PROJECT_PROTOCOL', 'https://');
 
 define('PROJECT_DOMAIN_URL', PROJECT_PROTOCOL . PROJECT_DOMAIN_NAME);
+
 define('PROJECT_PROXY_URL', PROJECT_PROTOCOL . PROJECT_PROXY_NAME);
 
 define('PROJECT_PATH', '/var/www/tagesspiegel.de/vergleich');
@@ -40,11 +42,13 @@ define('PROJECT_PATH', '/var/www/tagesspiegel.de/vergleich');
 Add to the end of file, for example:
 
 define('PROJECT_DOMAIN_NAME', 'vergleich.dev');
+
 define('PROJECT_PROXY_NAME', 'vergleich.dev');
 
 define('PROJECT_PROTOCOL', 'http://');
 
 define('PROJECT_DOMAIN_URL', PROJECT_PROTOCOL . PROJECT_DOMAIN_NAME);
+
 define('PROJECT_PROXY_URL', PROJECT_PROTOCOL . PROJECT_PROXY_NAME);
 
 define('PROJECT_PATH', 'd://openserver536basic/domains/vergleich.dev');
