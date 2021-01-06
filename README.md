@@ -19,7 +19,7 @@ Setup of servers
 ---------
 Some configuration files are not included into the repository.
 
-#### wp-config.php on Stage and Production servers
+#### * wp-config.php on Stage and Production servers
 
 Add to the end of file:
 
@@ -36,8 +36,7 @@ define('PROJECT_PROXY_URL', PROJECT_PROTOCOL . PROJECT_PROXY_NAME);
 define('PROJECT_PATH', '/var/www/tagesspiegel.de/vergleich');
 
 
----------
-#### wp-config.php on Local server
+#### * wp-config.php on Local server
 
 Add to the end of file, for example:
 
